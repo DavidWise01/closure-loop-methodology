@@ -1,0 +1,30 @@
+{
+  "_comment": "Example: A valid PULSE at Gate 64.5 (observe → act). The user clicked Submit — the form crossed from dirty to submitted. The witness is the click timestamp, present AT traversal (not logged after the fact).",
+  "primitive_id": "ABC",
+  "canonical_string": "form_dirty=true|64.5|form_submitted=true|constraint",
+  "hash": "sha256:3f7a2c91d4b8e056f1a9c347b2d8e5f0a1b3c6d9e2f4a7b0c3d5e8f1a4b7c0d",
+  "timestamp": "2026-04-08T10:00:00Z",
+  "context": "User clicked the Submit button on the intake form. Click timestamp recorded at traversal moment.",
+  "gate": "64.5",
+  "witness_type": "constraint",
+  "reference_path": "AKASHA/ANCHORS/3f7a2c91d4b8e056.json",
+  "methodology": "TD-CL-WP-2026-001",
+  "root0": "David Wise",
+
+  "_pulse": {
+    "state_in": "form_dirty=true",
+    "boundary": "64.5",
+    "state_out": "form_submitted=true",
+    "witness": "click_timestamp",
+    "witness_type": "constraint",
+    "gate_description": "observe → act"
+  },
+
+  "_validation": {
+    "gate_valid": true,
+    "witness_at_traversal": true,
+    "root_law": "SATISFIED",
+    "verdict": "VALID PULSE",
+    "fault_chains": []
+  }
+}

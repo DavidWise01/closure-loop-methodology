@@ -1,0 +1,59 @@
+{
+  "_comment": "Example: Lineage demonstration. Primitive ABC was anchored first. Pattern ABCD appeared later, adding a webhook receipt as extension D. All four derivation criteria pass.",
+
+  "primitive_ABC": {
+    "primitive_id": "ABC",
+    "canonical_string": "form_dirty=true|64.5|form_submitted=true|constraint",
+    "hash": "sha256:3f7a2c91d4b8e056f1a9c347b2d8e5f0a1b3c6d9e2f4a7b0c3d5e8f1a4b7c0d",
+    "timestamp": "2026-04-08T10:00:00Z",
+    "gate": "64.5",
+    "reference_path": "AKASHA/ANCHORS/3f7a2c91d4b8e056.json",
+    "methodology": "TD-CL-WP-2026-001",
+    "root0": "David Wise"
+  },
+
+  "pattern_ABCD": {
+    "canonical_string": "form_dirty=true|64.5|form_submitted=true|constraint|webhook_receipt",
+    "observed_after": "sha256:3f7a2c91d4b8e056f1a9c347b2d8e5f0a1b3c6d9e2f4a7b0c3d5e8f1a4b7c0d",
+    "timestamp": "2026-04-08T10:05:33Z",
+    "extension_D": "webhook_receipt"
+  },
+
+  "derivation_threshold": {
+    "criteria_1_same_core_relation": {
+      "result": "PASS",
+      "check": "Gate 64.5 preserved in ABCD",
+      "orig_gate": "64.5",
+      "new_gate": "64.5"
+    },
+    "criteria_2_same_ordered_structure": {
+      "result": "PASS",
+      "check": "ABC appears as subsequence in ABCD",
+      "ABC": ["form_dirty=true", "64.5", "form_submitted=true", "constraint"],
+      "ABCD": ["form_dirty=true", "64.5", "form_submitted=true", "constraint", "webhook_receipt"],
+      "ABC_is_subsequence": true
+    },
+    "criteria_3_removing_D_recovers_ABC": {
+      "result": "PASS",
+      "check": "ABCD[:-1] == ABC",
+      "ABCD_without_D": ["form_dirty=true", "64.5", "form_submitted=true", "constraint"],
+      "matches_ABC": true
+    },
+    "criteria_4_new_extension_present": {
+      "result": "PASS",
+      "check": "At least one element in ABCD not present in ABC",
+      "new_elements": ["webhook_receipt"]
+    },
+    "all_four_pass": true
+  },
+
+  "lineage_claim": {
+    "verdict": "LINEAGE CONFIRMED",
+    "claim": "Pattern ABCD was observed after anchor sha256:3f7a2c91d4b8e056..., and is a structural extension of it.",
+    "claim_type": "temporal + structural",
+    "NOT_a_causal_claim": true,
+    "NOT_an_ownership_claim": true,
+    "extension_D": "webhook_receipt",
+    "anchor_hash": "sha256:3f7a2c91d4b8e056f1a9c347b2d8e5f0a1b3c6d9e2f4a7b0c3d5e8f1a4b7c0d"
+  }
+}

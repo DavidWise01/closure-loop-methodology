@@ -1,0 +1,65 @@
+﻿[
+  {
+    "id": 1,
+    "mode": "validator",
+    "desc": "Click witness at traversal -- Gate 64.5",
+    "prompt": "I observed the user clicking submit (state_in: form_dirty=true), changed state to submitted (state_out: form_submitted=true). Witness was the click event timestamp recorded at the exact moment. Is this a valid pulse?",
+    "expected": "VALID PULSE, Gate 64.5, witness at traversal"
+  },
+  {
+    "id": 2,
+    "mode": "validator",
+    "desc": "Post-traversal hash witness -- FC3-Audit",
+    "prompt": "I wrote a record to the database, then generated a proof hash from the log. The witness is the hash. Validate.",
+    "expected": "FC3-Audit: witness post-traversal"
+  },
+  {
+    "id": 3,
+    "mode": "lineage",
+    "desc": "File sync + webhook extension",
+    "prompt": "Anchor: file change (inode update) synced to backup, witness inode timestamp. New pattern: same but also sends webhook, witness inode + webhook receipt. Extension?",
+    "expected": "LINEAGE CONFIRMED, D = webhook_receipt"
+  },
+  {
+    "id": 4,
+    "mode": "lineage",
+    "desc": "Sum vs product -- same gate, different core relation",
+    "prompt": "Anchored: compute sum(a,b), Gate 192.5, no witness. New: compute product(a,b), Gate 192.5, no witness. Lineage?",
+    "expected": "NOT LINEAGE -- core relation changed (addition vs multiplication)"
+  },
+  {
+    "id": 5,
+    "mode": "inspect",
+    "desc": "Fully compliant system",
+    "prompt": "Inspect system X: extracts (state_in, boundary, state_out, witness), commits SHA256 to public GitHub with timestamp, applies all four comparison criteria, references prior anchor hash in lineage claim, all records publicly verifiable.",
+    "expected": "Fully Compliant -- all five layers present"
+  },
+  {
+    "id": 6,
+    "mode": "inspect",
+    "desc": "Performative system -- vocabulary without structure",
+    "prompt": "Inspect system Y: claims AI attribution lineage tracking, uses embedding cosine similarity, calls results lineage matches, no hash anchors, no external records, asserts outputs were derived from training data.",
+    "expected": "Performative -- embedding similarity is not structural comparison; no anchor records; causation claimed not temporal/structural"
+  },
+  {
+    "id": 7,
+    "mode": "inspect",
+    "desc": "Partial -- missing witness layer",
+    "prompt": "Inspect system Z: extracts structural primitives, commits SHA256 to private repo, applies three of four comparison criteria (missing dependency pattern check), lineage claim references anchor hash but records not publicly accessible.",
+    "expected": "Partial -- Anchoring partial (private repo), Comparison partial, Witness non-compliant"
+  },
+  {
+    "id": 8,
+    "mode": "airgap",
+    "desc": "Valid airgap push -- Gate 128.5",
+    "prompt": "Push this pulse across the air gap: state_in sha256:abc123, state_out compressed_token:xyz789, witness sha256:witness_hash_at_traversal, Gate 128.5.",
+    "expected": "Canonical JSON with sorted keys, SHA256 computed, fire-and-forget instructions, no retry"
+  },
+  {
+    "id": 9,
+    "mode": "airgap",
+    "desc": "Airgap rejection -- wrong gate",
+    "prompt": "Push this pulse across the air gap: state_in sha256:abc123, state_out compressed_token:xyz789, witness sha256:witness_hash, boundary Gate 64.5.",
+    "expected": "Reject: Air Gap Protocol requires boundary 128.5 or derivative. Gate 64.5 not permitted. Silent exclusion would apply."
+  }
+]
