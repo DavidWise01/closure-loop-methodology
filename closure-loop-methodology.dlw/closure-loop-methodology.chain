@@ -1,9 +1,9 @@
 ROOT0-DLW-CHAIN-v1
 index : 1262
 slug  : closure-loop-methodology
-seal  : cba5a55966330a6687654be835b325423505a69e880dc02f8b1a92f0e7138691
-prev  : 5cee9c0ed70c23d1b1b66de7e1c33f56f4ec5a479ed753d1c8b4672f4b6f6c6a
-link  : 70a2c06aa59e6458e2dab6402edd11da4e79ac80a176cb8a1c4c85f340059a29
-head  : eff4338d5feb1c1a3d8b51b42f6042e41cc2c47f908ed6e326673243b18a5461
+seal  : 816aa20affa05e6347db2c86cb0c6780c95074a1e35c80e97ac6ce30b28bfb74
+prev  : 823dd72e39bb08bada6a6adfe29faaf9291d150357ab25594547249cb21bf6af
+link  : cabaa773004896411f499b796e8b2c247b8eb454c221efad158c7c1d43e9c6c9
+head  : c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
